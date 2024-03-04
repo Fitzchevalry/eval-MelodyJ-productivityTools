@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -11,10 +12,11 @@ const host = "127.0.0.1";
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
 app.use(express.static(path.join(dirname, "public")));
 app.use(
   "/favicon.ico",
-  express.static(path.join(dirname, "public", "images", "favicon.png"))
+  express.static(path.join(dirname, "public", "images", "favicon.png")),
 );
 
 /**
@@ -37,8 +39,34 @@ app.get("/", (req, res) => {
  * @param {string} path - Le chemin de la route.
  * @param {function} callback - La fonction de callback qui gère la requête et la réponse.
  */
+
+function escapeHTML(str) {
+  // eslint-disable-next-line no-useless-escape
+  return str.replaceAll(/[&<>"'`=\/]/g, (specialCharacter) => {
+    switch (specialCharacter) {
+      case "&":
+        return "&amp;";
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case '"':
+        return "&quot;";
+      case "'":
+        return "&#39;";
+      case "`":
+        return "&#x60;";
+      case "=":
+        return "&#x3D;";
+      case "/":
+        return "&#x2F;";
+      default:
+        return specialCharacter;
+    }
+  });
+}
 app.post("/comment", (req, res) => {
-  const comment = req.body.message;
+  const comment = escapeHTML(req.body.message);
   res.send(comment);
 });
 
