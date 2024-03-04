@@ -1,0 +1,23 @@
+{
+  "name": "evaluation-productivite-diwjs17",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "jest": "^27.4.7",
+    "jsdoc": "^4.0.2"
+  }
+}
