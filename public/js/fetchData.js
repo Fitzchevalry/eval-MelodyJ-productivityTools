@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const pokeP = document.getElementById("pokeInfo");
   const pokeDiv = document.getElementById("pokemon-info");
   const pokeAbilityBtn = document.getElementById("ability");
+  const pokeA = document.getElementById("pokeAbility");
 
   /**
    * Récupère des informations aléatoires à partir du PokeAPI
@@ -70,7 +71,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (foundAbilities) {
       try {
         jsonAbilities = await foundAbilities.json();
-        if ("" !== jsonAbilities.name && undefined !== jsonAbilities.name) {
+        if (jsonAbilities.name !== "" && undefined !== jsonAbilities.name) {
           abilityToDisplay = `${String(jsonAbilities.name)
             .slice(0, 1)
             .toUpperCase()}${String(jsonAbilities.name)
@@ -106,8 +107,9 @@ window.addEventListener("DOMContentLoaded", () => {
    * Configure l'écouteur d'événement pour le bouton de capacité Pokémon afin d'invoquer la récupération des capacités Pokémon.
    */
   const pokemonAbility = () => {
+    const pokeAbilityBtn = document.getElementById("ability");
     pokeAbilityBtn.addEventListener("click", fetchPokemonAbilities);
-    pokeDiv.appendChild(pokeAbility);
+    pokeDiv.appendChild(pokeA);
   };
 
   /**
