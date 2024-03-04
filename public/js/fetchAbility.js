@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 /**
  * Récupère une capacité Pokémon aléatoire de la PokeAPI.
  * @async

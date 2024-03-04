@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 /**
  * Récupère des informations aléatoires à partir du PokeAPI
  * @async

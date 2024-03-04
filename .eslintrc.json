@@ -11,6 +11,7 @@
   "rules": {
     "quotes": [0, "double"],
     "semi": 0,
-    "space-before-function-paren": 0
+    "space-before-function-paren": 0,
+    "trailingComa": "es5"
   }
 }
